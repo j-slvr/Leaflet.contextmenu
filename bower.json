@@ -3,7 +3,6 @@
   "homepage": "https://github.com/aratcliffe/Leaflet.contextmenu",
   "description": "A context menu for Leaflet",
   "main": [
-      "dist/leaflet.contextmenu.js",
       "dist/leaflet.contextmenu-src.js",
       "dist/leaflet.contextmenu.css"
   ],

@@ -41,7 +41,7 @@ L.Map.ContextMenu = L.Handler.extend({
 		this._items = [];
 		this._visible = false;
 
-		var container = this._container = L.DomUtil.create('div', L.Map.ContextMenu.BASE_CLS, map._container);
+		var container = this._container = L.DomUtil.create('div', L.Map.ContextMenu.BASE_CLS + " md-whiteframe-z2", map._container);
 		container.style.zIndex = 10000;
 		container.style.position = 'absolute';
 
@@ -211,9 +211,9 @@ L.Map.ContextMenu = L.Handler.extend({
 			return this._createSeparator(container, index);
 		}
 
-		var itemCls = L.Map.ContextMenu.BASE_CLS + '-item', 
+		var itemCls = 'md-button md-ink-ripple ' + L.Map.ContextMenu.BASE_CLS + '-item', 
 		    cls = options.disabled ? (itemCls + ' ' + itemCls + '-disabled') : itemCls,
-		    el = this._insertElementAt('a', cls, container, index),
+		    el = this._insertElementAt('button', cls, container, index),
 		    callback = this._createEventHandler(el, options.callback, options.context, options.hideOnSelect),
 		    html = '';
 		
@@ -221,6 +221,10 @@ L.Map.ContextMenu = L.Handler.extend({
 			html = '<img class="' + L.Map.ContextMenu.BASE_CLS + '-icon" src="' + options.icon + '"/>';
 		} else if (options.iconCls) {
 			html = '<span class="' + L.Map.ContextMenu.BASE_CLS + '-icon ' + options.iconCls + '"></span>';
+		} else if (options.iconFa) {
+			html = '<i class="fa fa-fw ' + options.iconFa + '"> </i>';
+		} else if (options.iconMd) {
+			html = '<md-icon  md-svg-src="' + options.iconMd + '"></md-icon>';
 		}
 
 		el.innerHTML = html + options.text;		
