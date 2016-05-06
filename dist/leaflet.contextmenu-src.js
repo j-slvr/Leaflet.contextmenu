@@ -5,7 +5,7 @@
         @preserve
 */
 
-(function(factory) {
+(function(factory,L) {
 	// Packaging/modules magic dance
 	if (typeof L === 'Object') return;
 
