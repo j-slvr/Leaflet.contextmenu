@@ -5,26 +5,7 @@
         @preserve
 */
 
-(function(factory,L) {
-	// Packaging/modules magic dance
-	if (typeof L === 'Object') return;
-
-	var L;
-	if (typeof define === 'function' && define.amd) {
-		// AMD
-		define(['leaflet'], factory);
-	} else if (typeof module !== 'undefined') {
-		// Node/CommonJS
-		L = require('leaflet');
-		module.exports = factory(L);
-	} else {
-		// Browser globals
-		if (typeof window.L === 'undefined') {
-			throw new Error('Leaflet must be loaded first');
-		}
-		factory(window.L);
-	}
-})(function(L) {
+(function(L) {
 L.Map.mergeOptions({
 	contextmenuItems: []
 });
